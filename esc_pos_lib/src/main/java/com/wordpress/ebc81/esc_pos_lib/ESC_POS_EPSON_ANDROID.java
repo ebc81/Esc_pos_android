@@ -241,6 +241,36 @@ public class ESC_POS_EPSON_ANDROID {
     }
 
     /**
+     * double height width mode on Font A
+     * ESC ! n
+     * @return bytes for this command
+     */
+    public  byte[] double_height_width_on()
+    {
+        byte[] result = new byte[3];
+        result[0] = ESC;
+        result[1] = 33;
+        result[2] = 56;
+        mPort.AddData2Printer(result);
+        return result;
+    }
+
+    /**
+     * double height width mode off Font A
+     * ESC ! n
+     * @return bytes for this command
+     */
+    public  byte[] double_height_width_off()
+    {
+        byte[] result = new byte[3];
+        result[0] = ESC;
+        result[1] = 33;
+        result[2] = 0;
+        mPort.AddData2Printer(result);
+        return result;
+    }
+
+    /**
      * Select double height mode Font A
      * ESC ! n
      * @return bytes for this command
@@ -584,7 +614,6 @@ public class ESC_POS_EPSON_ANDROID {
      * print_line
      * adds a LF command to the text
      * @param line (text to print)
-     * @return bytes for this command
      */
     public void print_line( String line)
     {
@@ -595,11 +624,11 @@ public class ESC_POS_EPSON_ANDROID {
      * print_text
      * without LF , means text is not printed immediately
      * @param line (text to print)
-     * @return bytes for this command
      */
     public void print_text(String line)
     {
-        mPort.AddData2Printer(line.getBytes());
+        //mPort.AddData2Printer(line.getBytes());
+        mPort.AddData2Printer(line.getBytes(Charset.forName("ISO-8859-1")));
     }
 
 
@@ -615,8 +644,11 @@ public class ESC_POS_EPSON_ANDROID {
         print_line(test);
         test = "Umlaute";
         print_line(test);
+        double_height_width_on();
         test = "ÄÖÜß";
         print_line(test);
+        double_height_width_off();
+
         feedpapercut();
     }
 
@@ -665,6 +697,7 @@ public class ESC_POS_EPSON_ANDROID {
         print_line(test);
         white_printing_on();
         test = "white printing on";
+        print_line(test);
         white_printing_off();
         print_and_feed_lines((byte)3);
         select_position_hri((byte)2);
