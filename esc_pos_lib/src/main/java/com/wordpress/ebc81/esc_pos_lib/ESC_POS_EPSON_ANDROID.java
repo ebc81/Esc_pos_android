@@ -617,6 +617,7 @@ public class ESC_POS_EPSON_ANDROID {
      */
     public void print_line( String line)
     {
+        if ( line.isEmpty()) return;
         mPort.AddData2Printer(line.getBytes(Charset.forName("ISO-8859-1")));
         print_linefeed();
     }
@@ -627,6 +628,7 @@ public class ESC_POS_EPSON_ANDROID {
      */
     public void print_text(String line)
     {
+        if ( line.isEmpty()) return;
         //mPort.AddData2Printer(line.getBytes());
         mPort.AddData2Printer(line.getBytes(Charset.forName("ISO-8859-1")));
     }
