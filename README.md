@@ -1,3 +1,8 @@
+Please support me
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/ebcTech)
+
+Code can be used in commercial and non commercial projects.
+
 # Esc_pos_android
 Android receipt printer library.
 Print receipts via a USB OTG cable.
@@ -5,7 +10,7 @@ Supported printer: Epson
 May work with other brands too.
 using ESC/POS Commands
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/ebcTech)
+
 
 License
 
