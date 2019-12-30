@@ -1,3 +1,5 @@
+https://ebc81.wordpress.com/2015/01/20/android-receipt-printer-library/
+
 Please support me
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/ebcTech)
 
